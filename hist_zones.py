@@ -123,7 +123,8 @@ if best_size > 0:
     show("extract mask",mask)
     show("areas",org)
 
-    cv2.imwrite(fpath+".areas.jpg",im)
+    cv2.imwrite(fpath+".mask-areas.jpg",im)
+    cv2.imwrite(fpath+".areas.jpg",org)
 
 
 cv2.waitKey(45000)
