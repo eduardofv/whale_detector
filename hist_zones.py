@@ -59,6 +59,13 @@ def show(name,imx):
     imx = cv2.resize(imx,None,fx=orgfx,fy=orgfx,interpolation=cv2.INTER_CUBIC)
     cv2.imshow(name,imx)
 
+#CLAHE as suggested by @dietCoke
+def clahe(rgb):
+    claheizer = cv2.createCLAHE()
+    lab = cv2.cvtColor(rgb.astype('uint8'), cv2.COLOR_RGB2Lab)
+    lab[:,:,0] = claheizer.apply(lab[:,:,0])
+    rgb = cv2.cvtColor(lab.astype('uint8'), cv2.COLOR_Lab2RGB)
+    return rgb
 
 #MAIN
 fpath = sys.argv[1]
@@ -75,6 +82,8 @@ show("org",org)
 #PREPROCESS
 #   Convert to HSV, yields better results than BGR
 im = cv2.cvtColor(im,cv2.COLOR_BGR2HSV)
+#   Testing if CLAHE improves result
+#im = clahe(im)
 #   get original image hist
 baseHist = getHist(im)
 
