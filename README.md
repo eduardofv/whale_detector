@@ -20,3 +20,8 @@ ROI Mask:
 
 ROI Extract:
 <img src="https://raw.githubusercontent.com/eduardofv/whale_detector/master/w_7489.jpg.extract.jpg" alt="whale" style="max-width:500px" />
+
+## Running with docker, Python
+
+The jupyter version (hist_zones.ipynb) works well with a docker image that contains OpenCV 3 and Python 3  as described <a href="http://to.predict.ch/hacking/2017/02/12/opencv-with-docker.html">here</a>. Just modify the last line of the Dockerfile to "CMD /usr/local/bin/jupyter-notebook --ip=0.0.0.0 --allow-root" to for root access.
+

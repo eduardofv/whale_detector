@@ -71,7 +71,7 @@ def clahe(rgb):
 fpath = sys.argv[1]
 im = cv2.imread(fpath)
 if im is None:
-    print 'Failed to load image file:', fname
+    print('Failed to load image file:', fname)
     sys.exit(1)
 
 org = im
